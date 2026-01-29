@@ -15,11 +15,11 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 30s
+      start_period: 10s
     restart: always
 
   mainapp:
-    image: snehcreate/expensetracker_v3
+    image: kvedansh/java-app
     container_name: Expensetracker
     environment:
       SPRING_DATASOURCE_USERNAME: root
@@ -35,6 +35,10 @@ services:
 
 networks:
   appbridge:
+    driver: bridge
 
 volumes:
   mysql-data:
+    driver: local
+
+
